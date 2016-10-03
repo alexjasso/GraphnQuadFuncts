@@ -4,15 +4,14 @@
 * Written By:   Alejandro R
 * Due Date:     2016/10/04
 */
-
 #include <iostream>
 using namespace std;
 
-void menu03AlejandroRamirez(void);
+void menu03AlejandroR(void);
 void setUpExtractUncommonDigit(void);
 int** setUp2D(int);
 void extractDigitInfo(int* dataAry, int size, int**);
-int* extractUncommonDigit(int**, int);
+int* extractUncommonDigitAlejandroR(int**, int);
 
 int main() {
 
@@ -21,26 +20,25 @@ int main() {
 		"Alejandro R\n\n"
 
 		"Assignment Information --\n"
-		"  Assignment Number:  Homework #3\n"
+		"  Assignment Number:  Homework 03,\n"
 		"                      Coding Assignment -- Exercise #1\n"
 		"  Written by:         Alejandro R\n"
 		"  Submitted Date:     2016/10/04\n";
 
-	menu03AlejandroRamirez();
+	menu03AlejandroR();
 
 	return 0;
 }
 
-
-void menu03AlejandroRamirez() {
+void menu03AlejandroR() {
 	int option;
 
 	do {
-		cout << "\n\n************************************************"
-			"\n*           MENU - Homework #3                 *"
-			"\n* 1. Calling extractUncommonDigitAlejandroR()  *"
-			"\n* 2. Quit                                      *"
-			"\n************************************************";
+		cout << "\n\n***********************************************"
+			"\n*                     MENU                    *"
+			"\n* 1. Calling extractUncommonDigitAlejandroR() *"
+			"\n* 2. Quit                                     *"
+			"\n***********************************************";
 
 		cout << "\nSelect an option (1 or 2): ";
 		cin >> option;
@@ -50,16 +48,13 @@ void menu03AlejandroRamirez() {
 			setUpExtractUncommonDigit();
 
 			break;
-
 		case 2:
 			cout << "\n  Fun exercise ..." << endl;
 
 			break;
-
 		default:
 			cout << "\n  WRONG OPTION!\n";
 		}
-
 	} while (option != 2);
 }
 
@@ -85,21 +80,21 @@ void setUpExtractUncommonDigit() {
 		cout << "\n    " << *(dataAry + i);
 	}
 
-	cout << "\n\nCalling extractUncommonDigitAlejandroR() -";
+	cout << "\n\n  Calling extractUncommonDigitAlejandroR() -";
 
 	iPtrPtrAry = setUp2D(size);
 
 	extractDigitInfo(dataAry, size, iPtrPtrAry);
 
-	uncommonAry = extractUncommonDigit(iPtrPtrAry, size);
+	uncommonAry = extractUncommonDigitAlejandroR(iPtrPtrAry, size);
 
-	cout << "\n\nDisplaying after returning the array -- "
+	cout << "\n\n  Displaying after returning the array -- "
 		"The Uncommon Digits:"
-		"\n  There is/are " << *(uncommonAry + 0) <<
+		"\n    There is/are " << *(uncommonAry + 0) <<
 		" uncommon digit(s)\n";
 
 	for (i = 1; i < (*(uncommonAry + 0) * 2 + 1); i += 2) {
-		cout << "    {" << *(uncommonAry + i) << "," <<
+		cout << "      {" << *(uncommonAry + i) << "," <<
 			*(uncommonAry + i + 1) << "}" << endl;
 	}
 
@@ -117,8 +112,7 @@ void setUpExtractUncommonDigit() {
 	uncommonAry = nullptr;
 }
 
-
-int** setUp2D(int size) {
+int** setUp2D(int size) {    
 	int** iPtrPtr = nullptr;
 	int i;
 
@@ -146,7 +140,7 @@ void extractDigitInfo(int* dataAry, int size, int** digitInfoAry) {
 	}
 }
 
-int* extractUncommonDigit(int** iPtrPtr, int size) {
+int* extractUncommonDigitAlejandroR(int** iPtrPtr, int size) {
 	int* allDigitOcc = new int[20](); 
 	int* uncommAry;
 	int uncDigitCnt = 0;
@@ -156,26 +150,25 @@ int* extractUncommonDigit(int** iPtrPtr, int size) {
 	for (i = 0; i < size; i++) {
 		for (j = 0, k = 0; j < 10 || k < 20; j++, k += 2) {
 			if (*(*(iPtrPtr + i) + j) > 0) {
-				*(allDigitOcc + k) += *(*(iPtrPtr + i) + j); // Adds & stores occurrences
-															 // of each digit in all the ints.
-				*(allDigitOcc + k + 1) = i; // Stores index in which the digit last occurres
-			}                               // in the next member of the array.
+				*(allDigitOcc + k) += *(*(iPtrPtr + i) + j); //Adds occurrncs
+				                                            //of digit (i/2)
+				*(allDigitOcc + k + 1) = i; //Stores index of int in which digit
+			}                               //(i/2) last occurrs in the next int
 		}
 	}
 
 	for (i = 0; i < 20; i += 2) {
 		if (*(allDigitOcc + i) == 1)
-			uncDigitCnt++; // Counts and stores # of occurred uncommon digits.
+			uncDigitCnt++;            //Counts # of occurred uncommon digits   
 	}
 
 	uncommAry = new int[uncDigitCnt * 2 + 1]();
 
 	*(uncommAry + 0) = uncDigitCnt;
 
-
-	for (i = 0, j = 1; i < 20; i += 4) { // Even uncommon digits.
+	for (i = 0, j = 1; i < 20; i += 4) { //EvenUncomnDigits
 		if (*(allDigitOcc + i) == 1) {
-			*(uncommAry + j) = i / 2; // i/2 gives digit to be worked with
+			*(uncommAry + j) = i / 2;    //(i/2) gives digit to be worked with
 			j++;
 			*(uncommAry + j) = *(allDigitOcc + i + 1);
 			j++;
@@ -183,7 +176,7 @@ int* extractUncommonDigit(int** iPtrPtr, int size) {
 		}
 	}
 
-	for (i = 2, j = (uncommonEvenCnt * 2 + 1); i < 20; i += 4) { // Odd digits uncommon digits.
+	for (i = 2, j = (uncommonEvenCnt * 2 + 1); i < 20; i += 4) { //OddUncomnDigits
 		if (*(allDigitOcc + i) == 1) {
 			*(uncommAry + j) = i / 2;
 			j++;
@@ -196,88 +189,88 @@ int* extractUncommonDigit(int** iPtrPtr, int size) {
 }
 
 /* Program Output
- CIS 25 - C++ Programming
- Laney College
- Alejandro R
- 
- Assignment Information --
-   Assignment Number:  Homework #3
-                       Coding Assignment -- Exercise #1
-   Written by:         Alejandro R
-   Submitted Date:     2016/10/04
- 
- 
- ************************************************
- *           MENU - Homework #3                 *
- * 1. Calling extractUncommonDigitAlejandroR()  *
- * 2. Quit                                      *
- ************************************************
- Select an option (1 or 2): 4
- 
-   WRONG OPTION!
- 
- 
- ************************************************
- *           MENU - Homework #3                 *
- * 1. Calling extractUncommonDigitAlejandroR()  *
- * 2. Quit                                      *
- ************************************************
- Select an option (1 or 2): 1
- 
-   How many integers? 3
-     Enter integer #0: 32965
-     Enter integer #1: -275721
-     Enter integer #2: 3028063
- 
-   The original array:
-     32965
-     -275721
-     3028063
- 
- Calling extractUncommonDigitAlejandroR() -
- 
- Displaying after returning the array -- The Uncommon Digits:
-   There is/are 5 uncommon digit(s)
-     {0,2}
-     {8,2}
-     {1,1}
-     {7,1}
-     {9,0}
- 
- 
- ************************************************
- *           MENU - Homework #3                 *
- * 1. Calling extractUncommonDigitAlejandroR()  *
- * 2. Quit                                      *
- ************************************************
- Select an option (1 or 2): 1
- 
-   How many integers? 4
-     Enter integer #0: 32965
-     Enter integer #1: -275721
-     Enter integer #2: 3028063
-     Enter integer #3: 10789
- 
- The original array:
-   32965
-   -275721
-   3028063
-   10789
- 
- Calling extractUncommonDigitAlejandroR() -
- 
- Displaying after returning the array -- The Uncommon Digits:
-   There is/are 0 uncommon digit(s)
- 
- 
- ************************************************
- *           MENU - Homework #3                 *
- * 1. Calling extractUncommonDigitAlejandroR()  *
- * 2. Quit                                      *
- ************************************************
- Select an option (1 or 2): 2
- 
-   Fun exercise ...
+CIS 25 - C++ Programming
+Laney College
+Alejandro R
+
+Assignment Information --
+  Assignment Number:  Homework 03,
+                      Coding Assignment -- Exercise #1
+  Written by:         Alejandro R
+  Submitted Date:     2016/10/04
+
+
+***********************************************
+*                     MENU                    *
+* 1. Calling extractUncommonDigitAlejandroR() *
+* 2. Quit                                     *
+***********************************************
+Select an option (1 or 2): 4
+
+  WRONG OPTION!
+
+
+***********************************************
+*                     MENU                    *
+* 1. Calling extractUncommonDigitAlejandroR() *
+* 2. Quit                                     *
+***********************************************
+Select an option (1 or 2): 1
+
+  How many integers? 3
+    Enter integer #0: 32965
+    Enter integer #1: -275721
+    Enter integer #2: 3028063
+
+  The original array:
+    32965
+    -275721
+    3028063
+
+  Calling extractUncommonDigitAlejandroR() -
+
+  Displaying after returning the array -- The Uncommon Digits:
+    There is/are 5 uncommon digit(s)
+      {0,2}
+      {8,2}
+      {1,1}
+      {7,1}
+      {9,0}
+
+
+***********************************************
+*                     MENU                    *
+* 1. Calling extractUncommonDigitAlejandroR() *
+* 2. Quit                                     *
+***********************************************
+Select an option (1 or 2): 1
+
+  How many integers? 4
+    Enter integer #0: 32965
+    Enter integer #1: -275721
+    Enter integer #2: 3028063
+    Enter integer #3: 10789
+
+  The original array:
+    32965
+    -275721
+    3028063
+    10789
+
+  Calling extractUncommonDigitAlejandroR() -
+
+  Displaying after returning the array -- The Uncommon Digits:
+    There is/are 0 uncommon digit(s)
+
+
+***********************************************
+*                     MENU                    *
+* 1. Calling extractUncommonDigitAlejandroR() *
+* 2. Quit                                     *
+***********************************************
+Select an option (1 or 2): 2
+
+  Fun exercise ...
 */
 
 /* Comments
@@ -289,11 +282,11 @@ int* extractUncommonDigit(int** iPtrPtr, int size) {
  entered by the user. 
  A pointer to 20 ints is then used to store each digit's # of 
  occurrences (one occurrence per entered int) followed by the 
- index {entered int) in which the digit last occurres. 
+ index of entered int in which the digit last occurres. 
  The program then counts the digits that only occurre once 
  (uncommon digits) and creates a pointer to 
- (#uncommonCount * 2 + 1) ints to store # of uncommon digits in
- index 0, followed by a pairs of all the even uncommon digits and 
+ (#uncommonCount * 2 + 1) ints to store the # of uncommon digits in
+ index 0, followed by pairs of the even uncommon digits and 
  the index of the int in which they occurre, and then the pairs for 
  the odd uncommon digits. 
 */
