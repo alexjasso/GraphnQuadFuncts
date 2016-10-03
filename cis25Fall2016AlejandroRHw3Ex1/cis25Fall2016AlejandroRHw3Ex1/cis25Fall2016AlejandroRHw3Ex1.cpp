@@ -147,11 +147,10 @@ void extractDigitInfo(int* dataAry, int size, int** digitInfoAry) {
 }
 
 int* extractUncommonDigit(int** iPtrPtr, int size) {
-	int* allDigitOcc = new int[20](); //
+	int* allDigitOcc = new int[20](); 
 	int* uncommAry;
 	int uncDigitCnt = 0;
 	int uncommonEvenCnt = 0;
-	//int uncommonOddCnt = 0;
 	int i, j, k;
 
 	for (i = 0; i < size; i++) {
@@ -282,5 +281,19 @@ int* extractUncommonDigit(int** iPtrPtr, int size) {
 */
 
 /* Comments
- 
+ // No issues
+
+ // Logic
+ This program uses a ptr to #size pointers to 10 ints,
+ in order to get and store which digits occure in the integers 
+ entered by the user. 
+ A pointer to 20 ints is then used to store each digit's # of 
+ occurrences (one occurrence per entered int) followed by the 
+ index {entered int) in which the digit last occurres. 
+ The program then counts the digits that only occurre once 
+ (uncommon digits) and creates a pointer to 
+ (#uncommonCount * 2 + 1) ints to store # of uncommon digits in
+ index 0, followed by a pairs of all the even uncommon digits and 
+ the index of the int in which they occurre, and then the pairs for 
+ the odd uncommon digits. 
 */
