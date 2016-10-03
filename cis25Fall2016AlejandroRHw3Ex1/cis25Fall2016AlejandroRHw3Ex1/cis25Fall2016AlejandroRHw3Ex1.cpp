@@ -197,90 +197,90 @@ int* extractUncommonDigit(int** iPtrPtr, int size) {
 }
 
 /* Program Output
-CIS 25 - C++ Programming
-Laney College
-Alejandro R
-
-Assignment Information --
-Assignment Number:  Homework #3
-Coding Assignment -- Exercise #1
-Written by:         Alejandro R
-Submitted Date:     2016/10/04
-
-
-************************************************
-*           MENU - Homework #3                 *
-* 1. Calling extractUncommonDigitAlejandroR()  *
-* 2. Quit                                      *
-************************************************
-Select an option (1 or 2): 4
-
-WRONG OPTION!
-
-
-************************************************
-*           MENU - Homework #3                 *
-* 1. Calling extractUncommonDigitAlejandroR()  *
-* 2. Quit                                      *
-************************************************
-Select an option (1 or 2): 1
-
-How many integers? 3
-Enter integer #0: 32965
-Enter integer #1: -275721
-Enter integer #2: 3028063
-
-The original array:
-32965
--275721
-3028063
-
-Calling extractUncommonDigitAlejandroR() -
-
-Displaying after returning the array -- The Uncommon Digits:
-There is/are 5 uncommon digit(s)
-{0,2}
-{8,2}
-{1,1}
-{7,1}
-{9,0}
-
-
-************************************************
-*           MENU - Homework #3                 *
-* 1. Calling extractUncommonDigitAlejandroR()  *
-* 2. Quit                                      *
-************************************************
-Select an option (1 or 2): 1
-
-How many integers? 4
-Enter integer #0: 32965
-Enter integer #1: -275721
-Enter integer #2: 3028063
-Enter integer #3: 10789
-
-The original array:
-32965
--275721
-3028063
-10789
-
-Calling extractUncommonDigitAlejandroR() -
-
-Displaying after returning the array -- The Uncommon Digits:
-There is/are 0 uncommon digit(s)
-
-
-************************************************
-*           MENU - Homework #3                 *
-* 1. Calling extractUncommonDigitAlejandroR()  *
-* 2. Quit                                      *
-************************************************
-Select an option (1 or 2): 2
-
-Fun exercise ...
+ CIS 25 - C++ Programming
+ Laney College
+ Alejandro R
+ 
+ Assignment Information --
+   Assignment Number:  Homework #3
+                       Coding Assignment -- Exercise #1
+   Written by:         Alejandro R
+   Submitted Date:     2016/10/04
+ 
+ 
+ ************************************************
+ *           MENU - Homework #3                 *
+ * 1. Calling extractUncommonDigitAlejandroR()  *
+ * 2. Quit                                      *
+ ************************************************
+ Select an option (1 or 2): 4
+ 
+   WRONG OPTION!
+ 
+ 
+ ************************************************
+ *           MENU - Homework #3                 *
+ * 1. Calling extractUncommonDigitAlejandroR()  *
+ * 2. Quit                                      *
+ ************************************************
+ Select an option (1 or 2): 1
+ 
+   How many integers? 3
+     Enter integer #0: 32965
+     Enter integer #1: -275721
+     Enter integer #2: 3028063
+ 
+   The original array:
+     32965
+     -275721
+     3028063
+ 
+ Calling extractUncommonDigitAlejandroR() -
+ 
+ Displaying after returning the array -- The Uncommon Digits:
+   There is/are 5 uncommon digit(s)
+     {0,2}
+     {8,2}
+     {1,1}
+     {7,1}
+     {9,0}
+ 
+ 
+ ************************************************
+ *           MENU - Homework #3                 *
+ * 1. Calling extractUncommonDigitAlejandroR()  *
+ * 2. Quit                                      *
+ ************************************************
+ Select an option (1 or 2): 1
+ 
+   How many integers? 4
+     Enter integer #0: 32965
+     Enter integer #1: -275721
+     Enter integer #2: 3028063
+     Enter integer #3: 10789
+ 
+ The original array:
+   32965
+   -275721
+   3028063
+   10789
+ 
+ Calling extractUncommonDigitAlejandroR() -
+ 
+ Displaying after returning the array -- The Uncommon Digits:
+   There is/are 0 uncommon digit(s)
+ 
+ 
+ ************************************************
+ *           MENU - Homework #3                 *
+ * 1. Calling extractUncommonDigitAlejandroR()  *
+ * 2. Quit                                      *
+ ************************************************
+ Select an option (1 or 2): 2
+ 
+   Fun exercise ...
 */
 
 /* Comments
-
+ 
 */
