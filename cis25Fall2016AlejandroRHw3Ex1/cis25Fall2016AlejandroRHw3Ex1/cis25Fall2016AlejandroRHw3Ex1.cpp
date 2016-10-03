@@ -141,7 +141,7 @@ void extractDigitInfo(int* dataAry, int size, int** digitInfoAry) {
 }
 
 int* extractUncommonDigitAlejandroR(int** iPtrPtr, int size) {
-	int* allDigitOcc = new int[20](); 
+	int* allDigitOcc = new int[20]();
 	int* uncommAry;
 	int uncDigitCnt = 0;
 	int uncommonEvenCnt = 0;
@@ -149,11 +149,10 @@ int* extractUncommonDigitAlejandroR(int** iPtrPtr, int size) {
 
 	for (i = 0; i < size; i++) {
 		for (j = 0, k = 0; j < 10 || k < 20; j++, k += 2) {
-			if (*(*(iPtrPtr + i) + j) > 0) {
-				*(allDigitOcc + k) += *(*(iPtrPtr + i) + j); //Adds occurrncs
-				                                            //of digit (i/2)
-				*(allDigitOcc + k + 1) = i; //Stores index of int in which digit
-			}                               //(i/2) last occurrs in the next int
+			if (*(*(iPtrPtr + i) + j) == 1) {
+				*(allDigitOcc + k) += 1;    // ++ didn't work here
+				*(allDigitOcc + k + 1) = i;
+			}
 		}
 	}
 
